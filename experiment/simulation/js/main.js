@@ -1,6 +1,6 @@
 /*Redeveloped
 Lab: Software Engineering
-Exp:Identifying Domain Classes from the Problem Statements
+Exp: Statechart and Activity Modeling
 File Name: main.js
 Author: Prakriti Dhang*/
 
