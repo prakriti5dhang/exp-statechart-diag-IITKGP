@@ -148,11 +148,11 @@ Author: Prakriti Dhang
       <tr>
         <td>
           <select id="selectstate" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-          
+          <option value="0" selected>State</option>
           </select>
       
         </td>
-        <td rowspan="3"><select id="selectcat" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td rowspan="3"><select id="selectact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Action Label</option>
           <option value="1">Do</option>
           <option value="2">Entry</option>
@@ -172,7 +172,7 @@ Author: Prakriti Dhang
   
 <!-------------------------------------------------------------- Table 3---------------------------------------------------------------------->
 
-<label for="table3" class="form-label fs-6" style=" font-weight: bold;">Table #3:Add a note [optional]</label>
+<label for="table3" class="form-label fs-6" style=" font-weight: bold;">Table #3: Add a note [optional]</label>
   <form id="ftbl3"  class="p-1 bg-white " action="">
     <div class="table-responsive">
   <table id="tbl3" class="table table-bordered  border border-1 border-info table-stripped">
@@ -233,7 +233,7 @@ Author: Prakriti Dhang
       
 
     </thead>
-    <tbody>
+    <tbody id="tbodyt4">
       
     </tbody>
 
@@ -257,12 +257,12 @@ Author: Prakriti Dhang
 </thead>
 <tbody>
   <tr>
-    <td> <select id="selectstatet3" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+    <td> <select id="selectstatet5a" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
       <option value="0" selected>Current State</option>
       <option value="1">Initial</option>
       <option value="2">Final</option>
     </select></td>
-    <td> <select id="selectstatet3" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+    <td> <select id="selectstatet5b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
       <option value="0" selected>Next State</option>
       <option value="1">Initial</option>
       <option value="2">Final</option>
@@ -287,10 +287,11 @@ Author: Prakriti Dhang
 <table id="tbl6" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
   <th>Current State</th>
-  <th>Next State</th>
   <th>Event</th>
   <th>Gaurd Condition</th>
   <th>Action</th>
+  <th>Next State</th>
+  <th>Remove</th>
   
 </thead>
 <tbody id="tbodytbt6">
