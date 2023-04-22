@@ -62,7 +62,7 @@ Author: Prakriti Dhang
   
 </select>
 <br>
-<p class="fw-bold fs-6">Click Submit to View Solution</p>
+<p class="fw-bold fs-6" id="para1" style="display: none;">Click Submit to View Solution</p>
 <button type="button" class="btn btn-primary" id="dispviewbtn" onclick="viewsolutionb()" disabled>Submit</button>
 
   </div> <!-- card body ended for select exercise div-->
@@ -391,18 +391,18 @@ Author: Prakriti Dhang
     <div class="col-md-9" >
 
       <!--------------------------------------------------------------- Table 1---------------------------------------------------------------->
-      <label for="table21" class="form-label fs-6" style=" font-weight: bold;">Table #1:  Add states of the system</label>
+      <label for="table21" class="form-label fs-6" style=" font-weight: bold;">Table #1:  Add Activity</label>
       <form id="ftbl21"  class="p-1 bg-white " action="">
       <div class="table-responsive">
     <table id="tbl1" class="table table-bordered  border border-1 border-info table-stripped">
       <thead>
-        <th>State Name</th>
+        <th>Activitity Decription</th>
         <th>Add</th>
       </thead>
       <tbody>
         <tr>
-          <td><input class="form-control border-primary " type="text" id="inp1" ></td>
-          <td style="text-align: center;"><button id="t1addbtn" class="btn btn-primary" type="button" onclick="addbtnt1()"  ><i class="bi bi-plus-lg"></i>Add</button></td>
+          <td><input class="form-control border-primary " type="text" id="inp21" ></td>
+          <td style="text-align: center;"><button id="t21addbtn" class="btn btn-primary" type="button" onclick="addbtnt21()"  ><i class="bi bi-plus-lg"></i>Add</button></td>
         </tr>
       </tbody>
  
@@ -410,14 +410,14 @@ Author: Prakriti Dhang
    </div> <!-- table 1 responsive div ended for exercise 2-->
 </form>
 <!------------------------------------------------------------Table 2-------------------------------------------------------------------------->
-  <label for="table22" class="form-label fs-6" style=" font-weight: bold;">Table #2: Internal activities of a state</label>
+  <label for="table22" class="form-label fs-6" style=" font-weight: bold;">Table #2: Add simple sequential flows</label>
   <form id="ftbl22"  class="p-1 bg-white " action="">
     <div class="table-responsive">
   <table id="tbl2" class="table column-bordered-table table-bordered border border-1 border-info ">
     <thead>
-      <th>State Name</th>
-      <th>Action Label</th>
-      <th>Action Expression</th>
+      <th>Current Activitity</th>
+      <th>Next Activity</th>
+      <th>Gaurd Condition</th>
       <th>Add</th>
     </thead>
     <tbody>
@@ -448,47 +448,19 @@ Author: Prakriti Dhang
   
 <!-------------------------------------------------------------- Table 3---------------------------------------------------------------------->
 
-<label for="table23" class="form-label fs-6" style=" font-weight: bold;">Table #3: Add a note [optional]</label>
+<label for="table23" class="form-label fs-6" style=" font-weight: bold;">Table #3: List of simple transitions between activities</label>
   <form id="ftbl23"  class="p-1 bg-white " action="">
     <div class="table-responsive">
   <table id="tbl3" class="table table-bordered  border border-1 border-info table-stripped">
     <thead>
-      <th>State Name</th>
-      <th>Note</th>
-      <th>Position</th>
-      <th>Add</th>
+      <th>Current Activitity</th>
+      <th>Next Activity</th>
+      <th>Gaurd Condition</th>
+      <th>Remove</th>
       
 
     </thead>
-    <tbody>
-      <tr>
-        <td>
-          <select id="selectstatet3" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-            <option value="0" selected>State</option>
-          </select>
-      
-        </td>
-        
-        <td>
-          <input class="form-control border-primary " type="text" id="inp3" >
-        </td>
-        <td>
-          <select id="selectpost" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-            <option value="0" selected>Select Position</option>
-            <option value="1">Left</option>
-            <option value="2">Right</option>
-            <option value="3">Top</option>
-            <option value="4">Bottom</option>
-           
-            
-          </select>
-        </td>
-        <td>
-          <button id="t3addbtn" class="btn btn-primary" type="button" onclick="addbtnt3()" ><i class="bi bi-plus-lg"></i>Add</button>
-        </td>
-       
-      </tr>
-    </tbody>
+   
 
   </table>
  </div> <!-- table 3 responsive div ended for exercise 2-->
@@ -496,21 +468,104 @@ Author: Prakriti Dhang
 
 <!----------------------------------------------------------------------- Table 4 ------------------------------------------------------------->
 
-<label for="table24" class="form-label fs-6" style=" font-weight: bold;">Table #4: List of system states</label>
+<label for="table24" class="form-label fs-6" style=" font-weight: bold;">Table #4: Specify parallel workflows (simple)
+</label>
   <form id="ftbl24"  class="p-1 bg-white " action="">
     <div class="table-responsive">
   <table id="tbl4" class="table table-bordered  border border-1 border-info table-stripped">
     <thead>
-      <th>State</th>
-      <th>Activities</th>
-      <th>Note</th>
-      <th>Position</th>
-      <th>Remove</th>
+      <th>Type</th>
+      <th>Current Activity(ies)</th>
+      <th>Synchronization Bar</th>
+      <th>Following Activity(ies)</th>
+      <th>Add</th>
       
 
     </thead>
     <tbody id="tbodyt4">
-      
+      <tr>
+        <td>Create
+          parallel activities</td>
+        <td><select id="currentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+          <option value="0" selected>Curent Activitity</option>
+          <option value="1">INITIAL_NODE</option>
+          <option value="2">FINAL _NODE</option>
+        
+        </select></td>
+        <td rowspan="2" style="text-align: center;"><select id="sychbar" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+          <option value="0" selected>Synchronization Bar</option>
+         </select>
+        <p>NOTE: Please specify separate synchronization bars for fork and join</p></td>
+        <td>
+          <select id="parallelact1" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #1</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact2" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #2</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact3" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #3</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact4" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #4</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact5" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #5</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+        </td>
+        <td><button id="t41addbtn" class="btn btn-primary" type="button" onclick="addbtnt41()" ><i class="bi bi-plus-lg"></i>Add</button></td>
+      </tr>
+      <tr>
+        <td>Merge
+          parallel activities</td>
+        <td>
+          <select id="parallelact1b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #1</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact2b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #2</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact3b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #3</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact4b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #4</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+          <select id="parallelact5b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Parallel activity #5</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
+          </select>
+        </td>
+        
+        <td><select id="nexttact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+          <option value="0" selected>Next Activity</option>
+          <option value="1">INITIAL_NODE</option>
+          <option value="2">FINAL _NODE</option>
+          
+         
+          
+        </select></td>
+        <td><button id="t42addbtn" class="btn btn-primary" type="button" onclick="addbtnt42()" ><i class="bi bi-plus-lg"></i>Add</button></td>
+      </tr>
     </tbody>
 
   </table>
@@ -519,67 +574,78 @@ Author: Prakriti Dhang
 
 
 <!---------------------------------------------------------------------- Table 5--------------------------------------------------------------->
-<label for="table25" class="form-label fs-6" style=" font-weight: bold;">Table #5: Define state transitions</label>
+<label for="table25" class="form-label fs-6" style=" font-weight: bold;">Table #5: List of parallel activities (simple)</label>
 <form id="ftbl25"  class="p-1 bg-white " action="">
 <div class="table-responsive">
 <table id="tbl5" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
-  <th>Current State</th>
-  <th>Next State</th>
-  <th>Event</th>
-  <th>Gaurd Condition</th>
-  <th>Action</th>
-  <th>Add</th>
+  <th>Current Activity</th>
+  <th>Fork Point</th>
+  <th>Fork to Activities</th>
+  <th>Merge Point</th>
+  <th>Merge to Activities</th>
+  <th>Remove</th>
 </thead>
 <tbody>
-  <tr>
-    <td> <select id="selectstatet5a" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-      <option value="0" selected>Current State</option>
-      <option value="1">Initial</option>
-      <option value="2">Final</option>
-    </select></td>
-    <td> <select id="selectstatet5b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-      <option value="0" selected>Next State</option>
-      <option value="1">Initial</option>
-      <option value="2">Final</option>
-    </select></td>
-    <td><input class="form-control border-primary " type="text" id="inp4" ></td>
-    <td><input class="form-control border-primary " type="text" id="inp5" ></td>
-    <td><input class="form-control border-primary " type="text" id="inp6" ></td>
-    <td>
-      <button id="t5addbtn" class="btn btn-primary" type="button" onclick="addbtnt5()" ><i class="bi bi-plus-lg"></i>Add</button>
-    </td>
-  </tr>
+  
 </tbody>
 
 </table>
 </div> <!-- table 5 responsive div ended for exercise 2-->
 </form>
 <!--------------------------------------------------------------------Table 6------------------------------------------------------------------>
-<label for="table26" class="form-label fs-6" style=" font-weight: bold;">Table #6: List of state transitions
+<label for="table26" class="form-label fs-6" style=" font-weight: bold;">Table #6: Add conditional transitions from activity
  </label>
 <form id="ftbl26"  class="p-1 bg-white" action="">
 <div class="table-responsive">
 <table id="tbl6" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
-  <th>Current State</th>
-  <th>Event</th>
-  <th>Gaurd Condition</th>
-  <th>Action</th>
-  <th>Next State</th>
-  <th>Remove</th>
+  <th>Current Activity</th>
+  <th>Condition & Subsequent Action</th>
+  <th>Add</th>
   
 </thead>
 <tbody id="tbodytbt6">
- 
+ <tr>
+  <td><select id="currentactt6" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+    <option value="0" selected>Curent Activitity</option>
+    <option value="1">INITIAL_NODE</option>
+    <option value="2">FINAL _NODE</option>
+  
+  </select></td>
+  <td></td>
+  <td><button id="t6addbtn" class="btn btn-primary" type="button" onclick="addbtnt26()" ><i class="bi bi-plus-lg"></i>Add</button></td>
+ </tr>
 </tbody>
 
 </table>
-</div> <!-- table 6 responsive div ended for exercise 1-->
+</div> <!-- table 6 responsive div ended for exercise 2-->
+<!-------------------------------------------------------Table 7-------------------------------------------------------------->
+<label for="table27" class="form-label fs-6" style=" font-weight: bold;">Table #7: List of conditional transitions from activity
+</label>
+<form id="ftbl27"  class="p-1 bg-white" action="">
+<div class="table-responsive">
+<table id="tbl6" class="table table-bordered  border border-1 border-info table-stripped">
+<thead>
+ <th>Current Activity</th>
+ <th>Condition</th>
+ <th>If TRUE</th>
+ <th>Gaurd Condition</th>
+ <th>If FALSE</th>
+ <th>Gaurd Condition</th>
+ <th>Remove</th>
+ 
+</thead>
+<tbody id="tbodytbt7">
 
-<button id="drawbtn" class="btn btn-primary" type="button" onclick="drawbtex1()" ><i class="bi bi-pencil-fill"></i>Draw</button></td>
+</tbody>
+
+</table>
+</div> <!-- table 7 responsive div ended for exercise 2-->
+
+<button id="drawbtn" class="btn btn-primary" type="button" onclick="drawbtex2()" ><i class="bi bi-pencil-fill"></i>Draw</button></td>
 </form>
-<div id="stchart_diag_ex1">
+<div id="stchart_diag_ex2">
 
 </div>
 
@@ -597,9 +663,13 @@ Author: Prakriti Dhang
   <div class="card-body">
 	<label for="result" class="form-label fs-4" style="color: brown; font-weight: bold;">Result</label>
 
-   <div style="font-size: medium;" id="show_result"  style=" display: none;" >
-   <img class="img-fluid" src="./images/solution1.png">
+   <div style="font-size: medium;" id="show_result1"  style=" display: none;" >
+   <img class="img-fluid" src="./images/solution1.png" alt="solution 1">
  
+</div> 
+<div style="font-size: medium;" id="show_result2"  style=" display: none;" >
+  <img class="img-fluid" src="" slt="solution 2">
+
 </div> 
 <br>
 <button type="button" class="btn btn-info border-primary" id="viewsol" onclick="solview()" disabled>View Solution</button>
