@@ -7,6 +7,16 @@ Author: Prakriti Dhang*/
 /* Exercise number choice */
 var ex= document.getElementById("selectex");
 function subex(){
+
+  if(ex.options[ex.selectedIndex].value==0){
+    document.getElementById("exercise1").style.display="none";
+    document.getElementById("ex1").style.display="none";
+    document.getElementById("dispres").style.display="none";
+    document.getElementById("show_result").style.display="none";
+    document.getElementById("dispviewbtn").disabled=true;
+    document.getElementById("viewsol").disabled=true;
+    
+}
     if(ex.options[ex.selectedIndex].value==1){
         document.getElementById("exercise1").style.display="block";
         document.getElementById("ex1").style.display="block";
@@ -16,16 +26,17 @@ function subex(){
         document.getElementById("viewsol").disabled=true;
        
     }
+    if(ex.options[ex.selectedIndex].value==2){
+      document.getElementById("exercise2").style.display="block";
+      document.getElementById("ex2").style.display="block";
+      document.getElementById("dispres").style.display="none";
+      document.getElementById("show_result").style.display="none";
+      document.getElementById("dispviewbtn").disabled=false;
+      document.getElementById("viewsol").disabled=true;
+     
+  }
     
-    if(ex.options[ex.selectedIndex].value==0){
-        document.getElementById("exercise1").style.display="none";
-        document.getElementById("ex1").style.display="none";
-        document.getElementById("dispres").style.display="none";
-        document.getElementById("show_result").style.display="none";
-        document.getElementById("dispviewbtn").disabled=true;
-        document.getElementById("viewsol").disabled=true;
-        
-    }
+    
 }
 /* Submit button to directly view the solution*/
 
@@ -34,24 +45,34 @@ function viewsolutionb(){ //submit button
   document.getElementById("show_result").style.display="none";
     document.getElementById("viewsol").disabled=false;
     document.getElementById("dispviewbtn").disabled=true;
+    window.scrollBy(0, 1800);
 }
 
 function solview(){  //view solution button
+  if(ex.options[ex.selectedIndex].value==1){
   document.getElementById("show_result").style.display="block";
     document.getElementById("viewsol").disabled=true;
+  }
+  if(ex.options[ex.selectedIndex].value==2){
+    document.getElementById("show_result").style.display="block";
+      document.getElementById("viewsol").disabled=true;
+    }
+
 }
  
 /********************************************* Table 1 ****************************************/
-let newtrID, newtr, newtd,newtda, newtdID,  inpt1;
+let newtrID, newtr, newtd,newtda, newtdan, newtdp, newtdID,  inpt1;
 /*let newCheckLabel = document.createElement('LABEL');
 newCheckLabel.setAttribute('for', newCheckBoxID);
 let labelTextNode = document.createTextNode(inpt1);
 newCheckLabel.appendChild(labelTextNode);
 newLi.appendChild(newCheckLabel);*/
-
+var arrstate=[];
+var arractivity=[];
+var arrevent=[];
 function addbtnt1(){
 inpt1=document.getElementById("inp1").value;
-
+arrstate.push(inpt1)
 
 
   var newIconbtn = document.createElement("img");
@@ -90,7 +111,7 @@ newtda.appendChild(liTextNodeacta);
 
 /**** note *****/
 let newtdnID =  "note_" +inpt1;
-let newtdan = document.createElement("td");
+newtdan = document.createElement("td");
 //newula = document.createElement("ul");
 newtdan.setAttribute("id",newtdnID);
 
@@ -100,8 +121,8 @@ let liTextNodeactn = document.createTextNode("");
 newtdan.appendChild(liTextNodeactn);
 
 /**** posiiton *****/
-let newtdpID =  "position_" +inpt1;
-let newtdp = document.createElement("td");
+let newtdpID =  "pos_" +inpt1;
+newtdp = document.createElement("td");
 //newula = document.createElement("ul");
 newtdp.setAttribute("id",newtdpID);
 
@@ -211,6 +232,8 @@ selectt5b.appendChild(newOptiont5b);
   let add_slash = document.createTextNode(slash_sign);
   para.appendChild(add_slash);
 
+newuLi = document.createElement("ul");
+newuLi.setAttribute("style","list-style-type:none" );
 newLi = document.createElement("li");
 let liTextNodeact = document.createTextNode(acteval);
 let liTextNodeae = document.createTextNode(inpt2);
@@ -218,6 +241,7 @@ newLi.appendChild(liTextNodeact);
 newLi.appendChild(para);
 newLi.appendChild(liTextNodeae);
 newLi.appendChild(newIconbtn); 
+newuLi.appendChild(newLi);
 
 if(stateval == 0){
   alert("Please select a state from the dropdown list in table #2");
@@ -230,13 +254,14 @@ else  if (inpt2 == "") {
   } 
   
   else{
-    document.getElementById("activ_"+stateval ).appendChild(newLi);
-    
+    document.getElementById("activ_"+stateval ).appendChild(newuLi);
+    var actevnt= acteval+"/"+inpt2;
+    arractivity.push(actevnt);
     
   }
 
-
-  
+document.getElementById("inp2").value="";
+document.getElementById("ftbl2").reset();
 
 
 }
@@ -269,6 +294,64 @@ if (typeof(btndel) == "object") {
 }
 
 
+
+/************************************ Function for Table 3 ********************************************/
+var inpt3;
+function addbtnt3() {
+  
+inpt3=document.getElementById("inp3").value;
+var selstatet3= document.getElementById("selectstatet3");
+var statevalt3 =selstatet3.options[selstatet3.selectedIndex].value;
+var selpos= document.getElementById("selectpost");
+var poseval =selpos.options[selpos.selectedIndex].text;
+
+  
+var newIconbtn = document.createElement("img");
+newIconbtn.setAttribute("src","./images/remove.png");
+newIconbtn.setAttribute("onclick", "removerowuc(this)");
+newIconbtn.setAttribute("style","cursor:pointer;");
+
+newuLin = document.createElement("ul");
+newLin = document.createElement("li");
+newuLin.setAttribute("style","list-style-type:none" );
+var paran = document.createElement("i");
+let liTextNodent = document.createTextNode(inpt3);
+paran.appendChild(liTextNodent);
+
+newuLip = document.createElement("ul");
+newLip = document.createElement("li");
+newuLip.setAttribute("style","list-style-type:none" );
+var parap = document.createElement("i");
+let liTextNodepos = document.createTextNode(poseval);
+parap.appendChild(liTextNodepos);
+
+newLin.appendChild(paran);
+newuLin.appendChild(newLin);
+newLip.appendChild(parap);
+newuLip.appendChild(newLip);
+//newtdan.appendChild(newIconbtn); 
+
+
+
+if(statevalt3 == 0){
+  alert("Please select a state from the dropdown list in table #3");
+}
+else if(poseval == "Select Position"){
+  alert("Please select an position!");
+}
+else  if (inpt3 == "") {
+    alert("Please Enter Note Before Clicking Add Button");
+  } 
+  
+  else{
+   document.getElementById("note_"+statevalt3 ).appendChild(newuLin);
+   document.getElementById("pos_"+statevalt3 ).appendChild(newuLip);
+    
+  }
+  document.getElementById("inp3").value="";
+  document.getElementById("ftbl3").reset();
+
+}
 /********************************************************** Function for Table 5 *****************************************************************/
 
 
@@ -280,13 +363,30 @@ function addbtnt5(){
    
 
 inpt4=document.getElementById("inp4").value;
+arrevent.push(inpt4);
+//console.log(arrevent);
 inpt5=document.getElementById("inp5").value;
 inpt6=document.getElementById("inp6").value;
 var sels1= document.getElementById("selectstatet5a");
 var s1eval =sels1.options[sels1.selectedIndex].text;
+//arrstate1.push(s1eval);
+//console.log(arrstate1);
+
   var sels2= document.getElementById("selectstatet5b");
   var s2eval =sels2.options[sels2.selectedIndex].text;
+  //arrstate2.push(s2eval);
+  //console.log(arrstate2);
 
+  if(s1eval==s2eval){
+alert("A system should not have any transition from Initial to itself");
+}
+ else if((s1eval=="Initial") && (s2eval=="Final")){
+  alert("A system should not have any transition from Initial to Final");
+ }
+ else if(inpt4 == ""){
+  alert("An event is necessary for a state transition to occur! Please specify it.");
+ }
+else{
  tr = document.createElement('tr');
   tr.setAttribute("id","t6st");
   document.getElementById('tbodytbt6').appendChild(tr);
@@ -325,12 +425,287 @@ newIconbtn.setAttribute("style","cursor:pointer;");
   tr.appendChild(td5);
   tr.appendChild(td6);
   document.getElementById('tbodytbt6').appendChild(tr);
-  
- 
+  document.getElementById("inp4").value="";
+}
+  //document.getElementById("ftbl5").reset();
 }
 
 
+function drawbtex1(){
+  var namespace = joint.shapes;
+
+  var graph = new joint.dia.Graph({}, { cellNamespace: namespace });
+
+  paper = new joint.dia.Paper({
+      el: document.getElementById('stchart_diag_ex1'),
+      model: graph,
+      //x: 0,
+      //y: 0,
+      //width: $('#ucdiagram1').width(),
+      //height:  $('#ucdiagram1').height(), // height had to be increased
      
+      background: {
+          color: '#ffffff', //'rgba(0, 255, 0, 0.3)'
+      },
+      
+      cellViewNamespace: namespace
+  });
+
+  var initialst = new joint.shapes.standard.Image();
+  initialst.resize(30, 30);
+  initialst.position(2,102);
+  //actor1.position(103, 15);
+  initialst.attr('root/title', 'joint.shapes.standard.BoarderedImage');
+  initialst.attr('label/fontSize', 16);
+  initialst.attr('body/strokeWidth', 2);
+  initialst.attr('border/rx', 2);
+  initialst.attr('image/xlinkHref', 'images/initialstate.png');
+  initialst.addTo(graph);
+
+  var finalst = new joint.shapes.standard.Image();
+  finalst.resize(40, 40);
+  finalst.position(443,385);
+  //actor1.position(103, 15);
+  finalst.attr('root/title', 'joint.shapes.standard.BoarderedImage');
+  finalst.attr('label/fontSize', 16);
+  finalst.attr('body/strokeWidth', 2);
+  finalst.attr('border/rx', 2);
+  finalst.attr('image/xlinkHref', 'images/finalstate.png');
+  finalst.addTo(graph);
+
+
+  var state1 = new joint.shapes.standard.Rectangle();
+        
+  state1.position(166, 99);
+  state1.resize(100, 40);
+  state1.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          text: arrstate[0],
+          //text:arractivity[0],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  state1.addTo(graph);
+
+  var evnt1 = new joint.shapes.standard.Rectangle();
+        
+  evnt1.position(166, 136);
+  evnt1.resize(100, 40);
+  evnt1.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          //text: arrstate[0],
+          text:arractivity[0],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  evnt1.addTo(graph);
+
+
+  var state2 = new joint.shapes.standard.Rectangle();
+        
+  state2.position(463, 159);
+  state2.resize(100, 40);
+  state2.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          text: arrstate[1],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  state2.addTo(graph);
+
+  var evnt2 = new joint.shapes.standard.Rectangle();
+        
+  evnt2.position(463, 196);
+  evnt2.resize(100, 40);
+  evnt2.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          text: arractivity[1],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  evnt2.addTo(graph);
+
+  var state3 = new joint.shapes.standard.Rectangle();
+        
+  state3.position(164, 386);
+  state3.resize(100, 40);
+  state3.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          text: arrstate[2],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  state3.addTo(graph);
+
+  var evnt3 = new joint.shapes.standard.Rectangle();
+        
+  evnt3.position(164, 422);
+  evnt3.resize(100, 40);
+  evnt3.attr({
+      body: {
+          rx: 3, // add a corner radius
+          ry: 3,
+          fill: '#FFFC8C',
+          strokeWidth: 2
+      },
+      label: {
+          text: arractivity[2],
+          fill: 'black',
+          fontSize: 16
+      }
+  });
+  evnt3.addTo(graph);
+
+  joint.shapes.standard.Link.define('examples.CustomLink', {
+    attrs: {
+        line: {
+            stroke: 'black',
+            strokeWidth: 2,
+            targetMarker: {
+                'type': 'rect',
+                
+            }
+        }
+    },
+    
+  });
+
+
+var linkis1 = new joint.shapes.standard.Link();
+linkis1.source(initialst);
+linkis1.target(state1);
+linkis1.addTo(graph);
+linkis1.appendLabel({
+          attrs: {
+              text: {
+                  text: arrevent[0],
+                  fontSize: 16
+              }
+              
+        }
+      });
+      linkis1.addTo(graph);
+
+      
+
+var link1 = new joint.shapes.standard.Link();
+link1.source(state1);
+link1.target(state2);
+link1.addTo(graph);
+        link1.appendLabel({
+          attrs: {
+              text: {
+                  text: arrevent[1],
+                  fontSize: 16
+              }
+              
+        },
+        position: {
+          distance: 0.25
+      }
+      });
+      link1.addTo(graph);
+
+var link2 = new joint.shapes.standard.Link();
+link2.position(164, 386);
+link2.source(evnt2);
+link2.target(evnt1);
+link2.addTo(graph);
+        link2.appendLabel({
+          attrs: {
+              text: {
+                  text: arrevent[2],
+                  fontSize: 16
+              }
+              
+        }
+      });
+      link2.addTo(graph);
+
+      var link3 = new joint.shapes.standard.Link();
+      link3.source(evnt1);
+      link3.target(state3);
+      link3.addTo(graph);
+              link3.appendLabel({
+                attrs: {
+                    text: {
+                        text: arrevent[3],
+                        fontSize: 16
+                    }
+                    
+              }
+            });
+            link3.addTo(graph);
+
+
+            var link4 = new joint.shapes.standard.Link();
+            link4.source(evnt2);
+            link4.target(state3);
+            link4.addTo(graph);
+                    link4.appendLabel({
+                      attrs: {
+                          text: {
+                              text: arrevent[4],
+                              fontSize: 16
+                          }
+                          
+                    }
+                  });
+                  link4.addTo(graph);
+
+
+      var linkfs3 = new joint.shapes.standard.Link();
+      linkfs3.source(state3);
+      linkfs3.target(finalst);
+      linkfs3.addTo(graph);
+      linkfs3.appendLabel({
+          attrs: {
+              text: {
+                  text: arrevent[5],
+                  fontSize: 16
+              }
+              
+        }
+       
+      });
+      linkfs3.addTo(graph);
+
+}
 
   
 
