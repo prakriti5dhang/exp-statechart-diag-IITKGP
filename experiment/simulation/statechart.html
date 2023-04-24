@@ -63,7 +63,7 @@ Author: Prakriti Dhang
 </select>
 <br>
 <p class="fw-bold fs-6" id="para1" style="display: none;">Click Submit to View Solution</p>
-<button type="button" class="btn btn-primary" id="dispviewbtn" onclick="viewsolutionb()" disabled>Submit</button>
+<button type="button" class="btn btn-info border border-2 border-primary fw-bold" id="dispviewbtn" onclick="viewsolutionb()" disabled>Submit</button>
 
   </div> <!-- card body ended for select exercise div-->
 </div> <!-- card ended for select exercise div-->
@@ -402,7 +402,7 @@ Author: Prakriti Dhang
       <tbody>
         <tr>
           <td><input class="form-control border-primary " type="text" id="inp21" ></td>
-          <td style="text-align: center;"><button id="t21addbtn" class="btn btn-primary" type="button" onclick="addbtnt21()"  ><i class="bi bi-plus-lg"></i>Add</button></td>
+          <td style="text-align: center;"><button id="t21addbtn" class="btn btn-primary " type="button" onclick="addbtnt21()"  ><i class="bi bi-plus-lg"></i>Add</button></td>
         </tr>
       </tbody>
  
@@ -424,7 +424,7 @@ Author: Prakriti Dhang
       <tr>
         <td>
           <select id="selectcuract" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-            <option value="0" selected>Curent Activity</option>
+            <option value="0" selected>Current Activity</option>
             <option value="1">INITIAL_NODE</option>
             <option value="2">FINAL _NODE</option>
           </select>
@@ -487,23 +487,24 @@ Author: Prakriti Dhang
         <td class="fw-bold">Create
           parallel activities</td>
         <td><select id="selcurrentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-          <option value="0" selected>Curent Activitity</option>
+          <option value="0" selected>Current Activitity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
         
         </select></td>
-        <td rowspan="2" style="text-align: center;">
+        <td rowspan="2" class="align-middle" style="text-align: center;">
           <div class="input-group mb-3">
           <select id="sychbar" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Synchronization Bar</option> 
          </select> <button id="t4addbtn" class="btn btn-success" type="button" onclick="addbtnt4()"  ><i class="bi bi-plus-lg"></i></button>
         </div>
          <p>NOTE: Please specify separate synchronization bars for fork and join</p>
-         <div class="input-group mb-3" id="synchinp1">
-         <input class="form-control" type="text" id="inpt4a">
-         <button id="synct4addbtn" class="btn btn-warning" type="button" onclick="addbtnt4()"  >Done</button>
+         <div id="synchinp1" style="display:none;">
+         <div class="input-group">
+         <input class="form-control border border-1 border-success" type="text" id="inp4a">
+         <button id="synct4addbtn" class="btn btn-warning border border-1 border-success" type="button" onclick="donebtnt4()"  >Done</button>
           </div>
-
+        </div>
       </td>
         <td>
           <select id="parallelact1" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
@@ -565,7 +566,7 @@ Author: Prakriti Dhang
           </select>
         </td>
         
-        <td><select id="selnexttact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td><select id="selnextact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Next Activity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
@@ -623,22 +624,63 @@ Author: Prakriti Dhang
   
   </select></td>
   <td>
+    
+
     <div class="border border-1 p-1 col-md-8">
     <div class="input-group mb-3">
       <span class="input-group-text">IF</span>
       <input class="form-control" type="text" id="inpt6a" placeholder="A Condition" >
       <span class="input-group-text">THEN</span>
     </div>
+    <!--div class="row">
+<div class="col-md-6">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+       Activity
+      </label>
+      
+    </div>
     
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+      <label class="form-check-label" for="flexRadioDefault2">
+        Fork
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+      <label class="form-check-label" for="flexRadioDefault3">
+        Merge
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <select id="nextactt6" class="form-select"  >
+      <option value="0" selected>Next Activitity</option>
+      <option value="1">INITIAL_NODE</option>
+      <option value="2">FINAL _NODE</option>
+     </select>
+
+     <select id="syncht6a" class="form-select" disabled >
+      <option value="0" selected>Synchronization Bar</option>
+      </select>
+
+      <select id="syncht6b" class="form-select" disabled >
+        <option value="0" selected>Synchronization Bar</option>
+        </select>
+  </div>
+</div-->
     <div class="input-group mb-3">
       <div class="form-check m-2">
-        <input class="form-check-input" type="radio" name="radio1" id="r1">
+        <input class="form-check-input" type="radio" name="radio1" id="r1" onclick="radiobtn1()">
         <label class="form-check-label" for="r1">
           Activity
         </label>
       </div> 
-
-      <select id="nextactt6" class="form-select"  >
+      
+      <select id="nextactt6" class="form-select"  disabled>
       <option value="0" selected>Next Activitity</option>
       <option value="1">INITIAL_NODE</option>
       <option value="2">FINAL _NODE</option>
@@ -647,28 +689,28 @@ Author: Prakriti Dhang
 
 <div class="input-group mb-3">
   <div class="form-check m-2">
-    <input class="form-check-input" type="radio" name="radio2" id="r2">
+    <input class="form-check-input" type="radio" name="radio2" id="r2" onclick="radiobtn2()">
     <label class="form-check-label" for="r2">
       Fork
     </label>
   </div> 
-
-  <select id="syncht6a" class="form-select"  >
+ 
+  <select id="syncht6a" class="form-select" disabled >
   <option value="0" selected>Synchronization Bar</option>
   
  </select>
 </div>
 
-
 <div class="input-group mb-3">
+
   <div class="form-check m-2">
-    <input class="form-check-input" type="radio" name="radio3" id="r3">
+    <input class="form-check-input" type="radio" name="radio3" id="r3" onclick="radiobtn3()" >
     <label class="form-check-label" for="r3">
       Merge
     </label>
   </div> 
-
-  <select id="syncht6b" class="form-select"  >
+  
+  <select id="syncht6b" class="form-select" disabled >
   <option value="0" selected>Synchronization Bar</option>
   
  </select>
@@ -691,14 +733,14 @@ Author: Prakriti Dhang
   
   <div class="input-group mb-3">
     <div class="form-check m-2">
-      <input class="form-check-input" type="radio" name="radio4" id="r4">
+      <input class="form-check-input" type="radio" name="radio4" id="r4" onclick="radiobtn4()">
       <label class="form-check-label" for="r4">
         Activity
       </label>
       
     </div> 
 
-    <select id="nextactt6b" class="form-select "  >
+    <select id="nextactt6b" class="form-select" disabled >
     <option value="0" selected>Next Activitity</option>
     <option value="1">INITIAL_NODE</option>
     <option value="2">FINAL _NODE</option>
@@ -707,13 +749,13 @@ Author: Prakriti Dhang
 
 <div class="input-group mb-3 ">
 <div class="form-check m-2">
-  <input class="form-check-input" type="radio" name="radio5" id="r5">
+  <input class="form-check-input" type="radio" name="radio5" id="r5" onclick="radiobtn5()">
   <label class="form-check-label " for="r5">
     Fork
   </label>
 </div> 
 
-<select id="synchbart6c" class="form-select"  >
+<select id="synchbart6c" class="form-select"  disabled>
 <option value="0" selected>Synchronization Bar</option>
 
 </select>
@@ -722,13 +764,13 @@ Author: Prakriti Dhang
 
 <div class="input-group mb-3">
 <div class="form-check m-2">
-  <input class="form-check-input" type="radio" name="radio6" id="r6">
+  <input class="form-check-input" type="radio" name="radio6" id="r6" onclick="radiobtn6()">
   <label class="form-check-label" for="r6">
     Merge
   </label>
 </div> 
 
-<select id="synchbart6d" class="form-select"  >
+<select id="synchbart6d" class="form-select"  disabled>
 <option value="0" selected>Synchronization Bar</option>
 
 </select>
