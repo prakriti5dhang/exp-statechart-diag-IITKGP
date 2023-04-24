@@ -368,7 +368,7 @@ else  if (inpt3 == "") {
 /********************************************************** Function for Table 5 *****************************************************************/
 
 
-
+var sels1,s1eval,sels2,s2eval;
 
 function addbtnt5(){
     let inpt4, inpt5, inpt6;
@@ -380,17 +380,20 @@ arrevent.push(inpt4);
 //console.log(arrevent);
 inpt5=document.getElementById("inp5").value;
 inpt6=document.getElementById("inp6").value;
-var sels1= document.getElementById("selectstatet5a");
-var s1eval =sels1.options[sels1.selectedIndex].text;
+sels1= document.getElementById("selectstatet5a");
+s1eval =sels1.options[sels1.selectedIndex].text;
 //arrstate1.push(s1eval);
 //console.log(arrstate1);
 
-  var sels2= document.getElementById("selectstatet5b");
-  var s2eval =sels2.options[sels2.selectedIndex].text;
+   sels2= document.getElementById("selectstatet5b");
+  s2eval =sels2.options[sels2.selectedIndex].text;
   //arrstate2.push(s2eval);
   //console.log(arrstate2);
 
-  if(s1eval==s2eval){
+  if((s1eval=="Current State") || (s2eval=="Next State")){
+    alert("Please add a transition from Initial state to one of the states in your system");
+   }
+  else if(s1eval==s2eval){
 alert("A system should not have any transition from Initial to itself");
 }
  else if((s1eval=="Initial") && (s2eval=="Final")){
@@ -445,6 +448,8 @@ newIconbtn.setAttribute("style","cursor:pointer;");
 
 
 function drawbtex1(){
+
+ 
   var namespace = joint.shapes;
 
   var graph = new joint.dia.Graph({}, { cellNamespace: namespace });

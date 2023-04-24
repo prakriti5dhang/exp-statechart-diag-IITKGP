@@ -115,7 +115,7 @@ Author: Prakriti Dhang
 <div class="card border border-2 border-success p-2" id="ex1" style="display:none;">
   <div class="card-body">
     <div class="row">
-    <div class="col-md-9" >
+    <div class="col-md-11" >
 
       <!--------------------------------------------------------------- Table 1---------------------------------------------------------------->
       <label for="table1" class="form-label fs-6" style=" font-weight: bold;">Table #1:  Add states of the system</label>
@@ -385,18 +385,18 @@ Author: Prakriti Dhang
 
 <!------------------------------------------Exercise 2 -------------------------------------------->
 
-<div class="card border border-2 border-success p-2" id="ex2" style="display:none;">
+<div class="card border border-2 border-success p-2" id="ex2" style="display:block;">
   <div class="card-body">
     <div class="row">
-    <div class="col-md-9" >
+    <div class="col-md-12" >
 
       <!--------------------------------------------------------------- Table 1---------------------------------------------------------------->
       <label for="table21" class="form-label fs-6" style=" font-weight: bold;">Table #1:  Add Activity</label>
       <form id="ftbl21"  class="p-1 bg-white " action="">
-      <div class="table-responsive">
-    <table id="tbl1" class="table table-bordered  border border-1 border-info table-stripped">
+      <div class=" table table-responsive">
+    <table id="tbl21" class="table table-bordered  border border-1 border-info table-stripped">
       <thead>
-        <th>Activitity Decription</th>
+        <th>Activity Decription</th>
         <th>Add</th>
       </thead>
       <tbody>
@@ -412,10 +412,10 @@ Author: Prakriti Dhang
 <!------------------------------------------------------------Table 2-------------------------------------------------------------------------->
   <label for="table22" class="form-label fs-6" style=" font-weight: bold;">Table #2: Add simple sequential flows</label>
   <form id="ftbl22"  class="p-1 bg-white " action="">
-    <div class="table-responsive">
-  <table id="tbl2" class="table column-bordered-table table-bordered border border-1 border-info ">
+    <div class="table table-responsive">
+  <table id="tbl22" class="table column-bordered-table table-bordered border border-1 border-info ">
     <thead>
-      <th>Current Activitity</th>
+      <th>Current Activity</th>
       <th>Next Activity</th>
       <th>Gaurd Condition</th>
       <th>Add</th>
@@ -423,22 +423,22 @@ Author: Prakriti Dhang
     <tbody>
       <tr>
         <td>
-          <select id="selectstate" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-          <option value="0" selected>State</option>
+          <select id="selectcuract" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+            <option value="0" selected>Curent Activity</option>
+            <option value="1">INITIAL_NODE</option>
+            <option value="2">FINAL _NODE</option>
           </select>
       
         </td>
-        <td rowspan="3"><select id="selectact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-          <option value="0" selected>Action Label</option>
-          <option value="1">Do</option>
-          <option value="2">Entry</option>
-          <option value="3">Exit</option>
-          <option value="4">Other</option>
+        <td rowspan="3"><select id="selectnextact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+          <option value="0" selected>Next Activity</option>
+          <option value="1">INITIAL_NODE</option>
+          <option value="2">FINAL _NODE</option>
          
           
         </select></td>
-        <td><input class="form-control border-primary " type="text" id="inp2" ></td>
-        <td rowspan="3" style="text-align: center;"><button id="t2addbtn" class="btn btn-primary" type="button" onclick="addbtnt2()" ><i class="bi bi-plus-lg"></i>Add</button></td>
+        <td><input class="form-control border-primary " type="text" id="inp22" ></td>
+        <td rowspan="3" style="text-align: center;"><button id="t22addbtn" class="btn btn-primary" type="button" onclick="addbtnt22()" ><i class="bi bi-plus-lg"></i>Add</button></td>
       </tr>
     </tbody>
 
@@ -450,10 +450,10 @@ Author: Prakriti Dhang
 
 <label for="table23" class="form-label fs-6" style=" font-weight: bold;">Table #3: List of simple transitions between activities</label>
   <form id="ftbl23"  class="p-1 bg-white " action="">
-    <div class="table-responsive">
-  <table id="tbl3" class="table table-bordered  border border-1 border-info table-stripped">
+    <div class="table table-responsive">
+  <table id="tbl23" class="table table-bordered  border border-1 border-info table-stripped">
     <thead>
-      <th>Current Activitity</th>
+      <th>Current Activity</th>
       <th>Next Activity</th>
       <th>Gaurd Condition</th>
       <th>Remove</th>
@@ -471,8 +471,8 @@ Author: Prakriti Dhang
 <label for="table24" class="form-label fs-6" style=" font-weight: bold;">Table #4: Specify parallel workflows (simple)
 </label>
   <form id="ftbl24"  class="p-1 bg-white " action="">
-    <div class="table-responsive">
-  <table id="tbl4" class="table table-bordered  border border-1 border-info table-stripped">
+    <div class="table table-responsive">
+  <table id="tbl24" class="table table-bordered  border border-1 border-info table-stripped">
     <thead>
       <th>Type</th>
       <th>Current Activity(ies)</th>
@@ -484,18 +484,27 @@ Author: Prakriti Dhang
     </thead>
     <tbody id="tbodyt4">
       <tr>
-        <td>Create
+        <td class="fw-bold">Create
           parallel activities</td>
-        <td><select id="currentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td><select id="selcurrentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Curent Activitity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
         
         </select></td>
-        <td rowspan="2" style="text-align: center;"><select id="sychbar" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-          <option value="0" selected>Synchronization Bar</option>
-         </select>
-        <p>NOTE: Please specify separate synchronization bars for fork and join</p></td>
+        <td rowspan="2" style="text-align: center;">
+          <div class="input-group mb-3">
+          <select id="sychbar" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+          <option value="0" selected>Synchronization Bar</option> 
+         </select> <button id="t4addbtn" class="btn btn-success" type="button" onclick="addbtnt4()"  ><i class="bi bi-plus-lg"></i></button>
+        </div>
+         <p>NOTE: Please specify separate synchronization bars for fork and join</p>
+         <div class="input-group mb-3" id="synchinp1">
+         <input class="form-control" type="text" id="inpt4a">
+         <button id="synct4addbtn" class="btn btn-warning" type="button" onclick="addbtnt4()"  >Done</button>
+          </div>
+
+      </td>
         <td>
           <select id="parallelact1" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
             <option value="0" selected>Parallel activity #1</option>
@@ -526,7 +535,7 @@ Author: Prakriti Dhang
         <td><button id="t41addbtn" class="btn btn-primary" type="button" onclick="addbtnt41()" ><i class="bi bi-plus-lg"></i>Add</button></td>
       </tr>
       <tr>
-        <td>Merge
+        <td class="fw-bold">Merge
           parallel activities</td>
         <td>
           <select id="parallelact1b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
@@ -556,7 +565,7 @@ Author: Prakriti Dhang
           </select>
         </td>
         
-        <td><select id="nexttact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td><select id="selnexttact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Next Activity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
@@ -577,7 +586,7 @@ Author: Prakriti Dhang
 <label for="table25" class="form-label fs-6" style=" font-weight: bold;">Table #5: List of parallel activities (simple)</label>
 <form id="ftbl25"  class="p-1 bg-white " action="">
 <div class="table-responsive">
-<table id="tbl5" class="table table-bordered  border border-1 border-info table-stripped">
+<table id="tbl25" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
   <th>Current Activity</th>
   <th>Fork Point</th>
@@ -598,7 +607,7 @@ Author: Prakriti Dhang
  </label>
 <form id="ftbl26"  class="p-1 bg-white" action="">
 <div class="table-responsive">
-<table id="tbl6" class="table table-bordered  border border-1 border-info table-stripped">
+<table id="tbl26" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
   <th>Current Activity</th>
   <th>Condition & Subsequent Action</th>
@@ -613,7 +622,125 @@ Author: Prakriti Dhang
     <option value="2">FINAL _NODE</option>
   
   </select></td>
-  <td></td>
+  <td>
+    <div class="border border-1 p-1 col-md-8">
+    <div class="input-group mb-3">
+      <span class="input-group-text">IF</span>
+      <input class="form-control" type="text" id="inpt6a" placeholder="A Condition" >
+      <span class="input-group-text">THEN</span>
+    </div>
+    
+    <div class="input-group mb-3">
+      <div class="form-check m-2">
+        <input class="form-check-input" type="radio" name="radio1" id="r1">
+        <label class="form-check-label" for="r1">
+          Activity
+        </label>
+      </div> 
+
+      <select id="nextactt6" class="form-select"  >
+      <option value="0" selected>Next Activitity</option>
+      <option value="1">INITIAL_NODE</option>
+      <option value="2">FINAL _NODE</option>
+     </select>
+</div>
+
+<div class="input-group mb-3">
+  <div class="form-check m-2">
+    <input class="form-check-input" type="radio" name="radio2" id="r2">
+    <label class="form-check-label" for="r2">
+      Fork
+    </label>
+  </div> 
+
+  <select id="syncht6a" class="form-select"  >
+  <option value="0" selected>Synchronization Bar</option>
+  
+ </select>
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="form-check m-2">
+    <input class="form-check-input" type="radio" name="radio3" id="r3">
+    <label class="form-check-label" for="r3">
+      Merge
+    </label>
+  </div> 
+
+  <select id="syncht6b" class="form-select"  >
+  <option value="0" selected>Synchronization Bar</option>
+  
+ </select>
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text">Gaurd Condition</span>
+  <input class="form-control" type="text" id="inpt6b" placeholder="True" >
+ 
+</div>
+</div>
+<br>
+
+<!---- ELSE -->
+
+<div class="border border-1 p-1 col-md-8 bg-light">
+  <div class="input-group mb-3">
+    <span class="input-group-text">ELSE</span>
+    
+  </div>
+  
+  <div class="input-group mb-3">
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="radio4" id="r4">
+      <label class="form-check-label" for="r4">
+        Activity
+      </label>
+      
+    </div> 
+
+    <select id="nextactt6b" class="form-select "  >
+    <option value="0" selected>Next Activitity</option>
+    <option value="1">INITIAL_NODE</option>
+    <option value="2">FINAL _NODE</option>
+   </select>
+</div>
+
+<div class="input-group mb-3 ">
+<div class="form-check m-2">
+  <input class="form-check-input" type="radio" name="radio5" id="r5">
+  <label class="form-check-label " for="r5">
+    Fork
+  </label>
+</div> 
+
+<select id="synchbart6c" class="form-select"  >
+<option value="0" selected>Synchronization Bar</option>
+
+</select>
+</div>
+
+
+<div class="input-group mb-3">
+<div class="form-check m-2">
+  <input class="form-check-input" type="radio" name="radio6" id="r6">
+  <label class="form-check-label" for="r6">
+    Merge
+  </label>
+</div> 
+
+<select id="synchbart6d" class="form-select"  >
+<option value="0" selected>Synchronization Bar</option>
+
+</select>
+</div>
+<div class="input-group mb-3">
+<span class="input-group-text">Gaurd Condition</span>
+<input class="form-control" type="text" id="inpt6c" placeholder="False" >
+
+</div>
+</div>
+
+  </td>
   <td><button id="t6addbtn" class="btn btn-primary" type="button" onclick="addbtnt26()" ><i class="bi bi-plus-lg"></i>Add</button></td>
  </tr>
 </tbody>
@@ -625,7 +752,7 @@ Author: Prakriti Dhang
 </label>
 <form id="ftbl27"  class="p-1 bg-white" action="">
 <div class="table-responsive">
-<table id="tbl6" class="table table-bordered  border border-1 border-info table-stripped">
+<table id="tbl27" class="table table-bordered  border border-1 border-info table-stripped">
 <thead>
  <th>Current Activity</th>
  <th>Condition</th>
