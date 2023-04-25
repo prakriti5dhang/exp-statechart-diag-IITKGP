@@ -3,6 +3,11 @@
 function addbtnt21(){
     var inpt21=document.getElementById("inp21").value;
 
+    if(inpt21 == ""){
+      alert("Please add activity!");
+    
+    }
+else{
     /******* Creating options in table 2********/
     let newOptionIDt2a;
     newOptionIDt2a = 'newOptiont2a_' + inpt21;
@@ -265,12 +270,79 @@ newOptiont6r2.setAttribute('value',inpt21);
 let selectt6r2 = document.getElementById('nextactt6b'); 
 selectt6r2.appendChild(newOptiont6r2);
 }
+}
 
 /***************************************************** Function for Table 2 ***************************************************/
 
 
 function addbtnt22(){
+  var inpt22 = document.getElementById("inp22").value;
+  var selcura= document.getElementById("selectcuract");
+  var actcval =selcura.options[selcura.selectedIndex].text;
+
+  var selnexta= document.getElementById("selectnextact");
+  var actnval =selnexta.options[selnexta.selectedIndex].text;
+
+
+
+
+if((actcval=="Current Activity")&& (actnval=="Next Activity")){
+  alert("Please select current activity and next activity!");
+}
+
+else if (actcval=="Current Activity"){
+  alert("Please select current activity!");
+} 
+else if (actnval=="Next Activity"){
+  alert("Please select next activity!");
+}
+else if(inpt22 == ""){
+  alert("Please add gaurd condition!");
+
+}
+else{
+  /********************************************** Adding to table 3 ****************************************************/
+
+let newtr =document.createElement("tr");
+let newtdIDc= "cact"+actcval;
+let newtdc= document.createElement("td");
+newtdc.setAttribute("id", newtdIDc);
+
+let newtdIDn= "nact"+actnval;
+let newtdn= document.createElement("td");
+newtdn.setAttribute("id", newtdIDn);
+
+let newtdIDgc= "gc"+inpt22;
+let newtdgc= document.createElement("td");
+newtdgc.setAttribute("id", newtdIDgc);
+
+
+var newIconbtn = document.createElement("img");
+newIconbtn.setAttribute("src","./images/remove.png");
+newIconbtn.setAttribute("onclick", "removerow(this)");
+newIconbtn.setAttribute("style","cursor:pointer;");
+
+let newtdbtn= document.createElement("td");
+
+let tdvalc=document.createTextNode(actcval);
+let tdvaln=document.createTextNode(actnval);
+let tdvalgc=document.createTextNode(inpt22);
+
+newtdc.appendChild(tdvalc);
+newtdn.appendChild(tdvaln);
+newtdgc.appendChild(tdvalgc);
+newtdbtn.appendChild(newIconbtn); 
     
+newtr.appendChild(newtdc);
+newtr.appendChild(newtdn);
+newtr.appendChild(newtdgc);
+newtr.appendChild(newtdbtn);
+document.getElementById('tbodyt23').appendChild(newtr);
+ 
+}
+
+document.getElementById("inp22").value="";
+
 }
 
 
@@ -368,14 +440,181 @@ document.getElementById("inp4a").value="";
 
 }
 
-/************************ add button for 1st row in table 4*********************************************************/
+/************************ function for add button of 1st row in table 4. inserting value in table 5*********************************************************/
 function addbtnt41(){
-    
+  var selcurat4= document.getElementById("selcurrentact");
+  var actcvalt4 =selcurat4.options[selcurat4.selectedIndex].text;
+  var selsynct4= document.getElementById("sychbar");
+  var syncvalt4 =selsynct4.options[selsynct4.selectedIndex].text;
+  var selp1t4= document.getElementById("parallelact1");
+  var p1valt4 =selp1t4.options[selp1t4.selectedIndex].text;
+  var selp2t4= document.getElementById("parallelact2");
+  var p2valt4 =selp2t4.options[selp2t4.selectedIndex].text;
+
+  if (syncvalt4 =="Synchronization Bar"){
+    alert("Select Synchronization Bar")
+  }
+
+  else{
+let newtrt5 =document.createElement("tr");
+
+/*create td for current activity*/
+let newtdIDct5= "ct4act"+actcvalt4;
+let newtdct5= document.createElement("td");
+newtdct5.setAttribute("id", newtdIDct5);
+
+/*create td for fork point (synchronization bar)*/
+let newtdIDst5= "st4act"+syncvalt4;
+let newtdst5= document.createElement("td");
+newtdst5.setAttribute("id", newtdIDst5);
+
+/*create td and adding to unordered list parallel activities row 1*/
+let newtdIDp1t5= "p1t4act"+p1valt4;
+let newtdp1t5= document.createElement("td");
+newtdp1t5.setAttribute("id", newtdIDp1t5);
+
+
+let newulpt5= document.createElement("ul");
+let newlip1t5= document.createElement("li");
+let newlip2t5= document.createElement("li");
+
+
+/*create td for merge point*/
+let newtdIDmpt5= "mpt4act";
+let newtdmpt5= document.createElement("td");
+newtdmpt5.setAttribute("id", newtdIDmpt5);
+
+/*create td for merge activity*/
+let newtdIDmat5= "mat4act";
+let newtdmat5= document.createElement("td");
+newtdmat5.setAttribute("id", newtdIDmat5);
+
+
+var newIconbtn = document.createElement("img");
+newIconbtn.setAttribute("src","./images/remove.png");
+newIconbtn.setAttribute("onclick", "removerow(this)");
+newIconbtn.setAttribute("style","cursor:pointer;");
+
+let newtdbtnt5= document.createElement("td");
+
+/*adding value to td */
+let tdvalct5=document.createTextNode(actcvalt4);
+let tdvalst5=document.createTextNode(syncvalt4);
+let newlip1t5t=document.createTextNode(p1valt4);
+let newlip2t5t=document.createTextNode(p2valt4);
+let tdvalmp=document.createTextNode("");
+let tdvalma=document.createTextNode("");
+
+newlip1t5.appendChild(newlip1t5t);
+newlip2t5.appendChild(newlip2t5t);
+newulpt5.appendChild(newlip1t5);
+newulpt5.appendChild(newlip2t5);
+
+newtdct5.appendChild(tdvalct5);
+newtdst5.appendChild(tdvalst5);
+newtdp1t5.appendChild(newulpt5);
+//newtdp2t5.appendChild(tdvalp2);
+newtdmpt5.appendChild(tdvalmp);
+newtdmat5.appendChild(tdvalma);
+newtdbtnt5.appendChild(newIconbtn); 
+
+newtrt5.appendChild(newtdct5);
+newtrt5.appendChild(newtdst5);
+newtrt5.appendChild(newtdp1t5);
+//newtrt5.appendChild(newtdp2t5);
+newtrt5.appendChild(newtdmpt5);
+newtrt5.appendChild(newtdmat5);
+newtrt5.appendChild(newtdbtnt5);
+document.getElementById('tbodyt25').appendChild(newtrt5);
+
+  }
 }
 
 
-/************************ add button for 2nd  row in table 4*********************************************************/
+/************************  function for add button of 2nd  row in table 4. inserting value in table 5*********************************************************/
 function addbtnt42(){
+
+  var selp1bt4= document.getElementById("parallelact1b");
+  var p1bvalt4 =selp1bt4.options[selp1bt4.selectedIndex].text;
+  var selp2bt4= document.getElementById("parallelact2b");
+  var p2bvalt4 =selp2bt4.options[selp2bt4.selectedIndex].text;
+  var selsyncbt4= document.getElementById("sychbar");
+  var syncbvalt4 =selsyncbt4.options[selsyncbt4.selectedIndex].text;
+  var selnt4= document.getElementById("selnextact");
+  var actnvalt4 =selnt4.options[selnt4.selectedIndex].text;
+
+  if (syncbvalt4 =="Synchronization Bar"){
+    alert("Select Synchronization Bar")
+  }
+
+  else{
+    let newtrt5b =document.createElement("tr");
+   
+    
+     /*create td and adding to unordered list parallel activities row 2*/
+   
+    let newtdpbt5= document.createElement("td");
+    let newulpbt5= document.createElement("ul");
+    let newlip1bt5= document.createElement("li");
+    let newlip2bt5= document.createElement("li");
+
+
+ let newtdfpt5b= document.createElement("td");
+ let newtdfat5b= document.createElement("td");
+
+
+    /*create td for merge point (synchronization bar)*/
+    let newtdIDmpt5b= "mpt4act" +syncbvalt4;
+    let newtdmpt5b= document.createElement("td");
+    newtdmpt5b.setAttribute("id", newtdIDmpt5b);
+    
+    /*create td for merge to activities*/
+    let newtdIDmat5b= "nt4act"+actnvalt4;
+    let newtdmat5b= document.createElement("td");
+    newtdmat5b.setAttribute("id", newtdIDmat5b);
+    
+    
+    var newIconbtn = document.createElement("img");
+    newIconbtn.setAttribute("src","./images/remove.png");
+    newIconbtn.setAttribute("onclick", "removerow(this)");
+    newIconbtn.setAttribute("style","cursor:pointer;");
+    
+    let newtdbtnbt5= document.createElement("td");
+    
+    /*adding value to td */
+    let newlip1bt5t=document.createTextNode(p1bvalt4);
+    let newlip2bt5t=document.createTextNode(p2bvalt4);
+    let tdvalct5=document.createTextNode("");
+    let tdvalst5=document.createTextNode("");
+    let tdvalmp=document.createTextNode(syncbvalt4);
+    let tdvalma=document.createTextNode(actnvalt4);
+    
+    newlip1bt5.appendChild(newlip1bt5t);
+    newlip2bt5.appendChild(newlip2bt5t);
+    newulpbt5.appendChild(newlip1bt5);
+    newulpbt5.appendChild(newlip2bt5);
+    
+    
+    newtdpbt5.appendChild(newulpbt5);
+    newtdfpt5b.appendChild(tdvalct5);
+    newtdfat5b.appendChild(tdvalst5);
+    newtdmpt5b.appendChild(tdvalmp);
+    newtdmat5b.appendChild(tdvalma);
+    newtdbtnbt5.appendChild(newIconbtn); 
+    
+    newtrt5b.appendChild(newtdpbt5);
+    newtrt5b.appendChild(newtdfpt5b);
+    newtrt5b.appendChild(newtdfat5b);
+    newtrt5b.appendChild(newtdmpt5b);
+    newtrt5b.appendChild(newtdmat5b);
+    newtrt5b.appendChild(newtdbtnbt5);
+    document.getElementById('tbodyt25').appendChild(newtrt5b);
+
+  }
+
+
+
+
 
 }
 
