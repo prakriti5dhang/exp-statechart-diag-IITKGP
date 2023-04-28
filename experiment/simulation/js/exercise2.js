@@ -619,7 +619,8 @@ function addbtnt42(){
 }
 
 /***************************************************** Function for Table 6 ***************************************************/
-
+var tdvalt7c,tdvalt7e;
+var a1bvalt6,synavalt6,synbvalt6, a2bvalt6, syncvalt6, syndvalt6;
 /*************** radio button 1*******************/
 function radiobtn1(){
     document.getElementById("nextactt6").disabled=false;
@@ -629,12 +630,16 @@ function radiobtn1(){
     document.getElementById("r2").checked=false;
     document.getElementById("r3").checked=false;
 
-    document.getElementById("synchbart6c").disabled=true;
-    document.getElementById("nextactt6b").disabled=true;
-    document.getElementById("synchbart6d").disabled=true;
-    document.getElementById("r4").checked=false;
-    document.getElementById("r5").checked=false;
-    document.getElementById("r6").checked=false;
+    
+
+}
+
+function nextactchng(){
+  var selat6= document.getElementById("nextactt6");
+  a1bvalt6 =selat6.options[selat6.selectedIndex].text; //next activity
+  console.log(a1bvalt6);
+   tdvalt7c =document.createTextNode(a1bvalt6); 
+   console.log(tdvalt7c);
 }
 
 /*************** radio button 2*******************/
@@ -646,13 +651,14 @@ function radiobtn2(){
     document.getElementById("r2").checked=true;
     document.getElementById("r3").checked=false;
 
-    document.getElementById("synchbart6c").disabled=true;
-    document.getElementById("nextactt6b").disabled=true;
-    document.getElementById("synchbart6d").disabled=true;
-    document.getElementById("r4").checked=false;
-    document.getElementById("r5").checked=false;
-    document.getElementById("r6").checked=false;
+    
 }
+  function synachng(){
+    var selsynat6= document.getElementById("syncht6a");
+    synavalt6 =selsynat6.options[selsynat6.selectedIndex].text; // fork
+     tdvalt7c=document.createTextNode(synavalt6);
+     console.log(tdvalt7c);
+  }
 
 /*************** radio button 3*******************/
 function radiobtn3(){
@@ -662,13 +668,14 @@ function radiobtn3(){
     document.getElementById("r3").checked=true;
     document.getElementById("r2").checked=false;
     document.getElementById("r1").checked=false;
+   
+}
 
-    document.getElementById("synchbart6c").disabled=true;
-    document.getElementById("nextactt6b").disabled=true;
-    document.getElementById("synchbart6d").disabled=true;
-    document.getElementById("r4").checked=false;
-    document.getElementById("r5").checked=false;
-    document.getElementById("r6").checked=false;
+function synbchng(){
+  var selsynbt6= document.getElementById("syncht6b");
+  synbvalt6 =selsynbt6.options[selsynbt6.selectedIndex].text; //merge
+  tdvalt7c=document.createTextNode(synbvalt6);
+  console.log(tdvalt7c);
 }
 
 
@@ -680,14 +687,14 @@ function radiobtn4(){
     document.getElementById("r4").checked=true;
     document.getElementById("r5").checked=false;
     document.getElementById("r6").checked=false;
+   
+   
+}
 
-    document.getElementById("syncht6b").disabled=true;
-    document.getElementById("nextactt6").disabled=true;
-    document.getElementById("syncht6a").disabled=true;
-    document.getElementById("r3").checked=false;
-    document.getElementById("r2").checked=false;
-    document.getElementById("r1").checked=false;
-
+function nxtbchng(){
+  var selabt6= document.getElementById("nextactt6b");
+  a2bvalt6 =selabt6.options[selabt6.selectedIndex].text; //next activity
+  tdvalt7e=document.createTextNode(a2bvalt6); 
 }
 
 /*************** radio button 5*******************/
@@ -699,13 +706,15 @@ function radiobtn5(){
     document.getElementById("r5").checked=true;
     document.getElementById("r6").checked=false;
 
-    document.getElementById("syncht6b").disabled=true;
-    document.getElementById("nextactt6").disabled=true;
-    document.getElementById("syncht6a").disabled=true;
-    document.getElementById("r3").checked=false;
-    document.getElementById("r2").checked=false;
-    document.getElementById("r1").checked=false;
+   
 }
+
+function syncchng(){
+  var selsynct6= document.getElementById("synchbart6c");
+  syncvalt6 =selsynct6.options[selsynct6.selectedIndex].text; // fork
+  tdvalt7e=document.createTextNode(syncvalt6); 
+}
+
 
 
 /*************** radio button 6*******************/
@@ -716,17 +725,132 @@ function radiobtn6(){
     document.getElementById("r6").checked=true;
     document.getElementById("r5").checked=false;
     document.getElementById("r4").checked=false;
-
-    document.getElementById("syncht6b").disabled=true;
-    document.getElementById("nextactt6").disabled=true;
-    document.getElementById("syncht6a").disabled=true;
-    document.getElementById("r3").checked=false;
-    document.getElementById("r2").checked=false;
-    document.getElementById("r1").checked=false;
+   
+    
 }
 
+function syndchng(){
+  var selsyndt6= document.getElementById("synchbart6d");
+  syndvalt6 =selsyndt6.options[selsyndt6.selectedIndex].text; //merge
+    tdvalt7e=document.createTextNode(syndvalt6); 
+}
+
+/********************* function of table 6 and adding input values to table 7 ***************************************/
 function addbtnt26(){
 
+
+  var selcbt6= document.getElementById("currentactt6");
+  var c1bvalt6 =selcbt6.options[selcbt6.selectedIndex].text; //current activity
+//if
+  var inpt6a =document.getElementById("inpt6a").value; //a condition
+
+  /*var selat6= document.getElementById("nextactt6");
+  a1bvalt6 =selat6.options[selat6.selectedIndex].text; //next activity
+
+  var selsynat6= document.getElementById("syncht6a");
+   synavalt6 =selsynat6.options[selsynat6.selectedIndex].text; // fork
+
+  var selsynbt6= document.getElementById("syncht6b");
+   synbvalt6 =selsynbt6.options[selsynbt6.selectedIndex].text; //merge*/
+
+  var inpt6b =document.getElementById("inpt6b").value; //gaurd condition
+
+  //else
+/* var selabt6= document.getElementById("nextactt6b");
+   a2bvalt6 =selabt6.options[selabt6.selectedIndex].text; //next activity
+
+  var selsynct6= document.getElementById("synchbart6c");
+   syncvalt6 =selsynct6.options[selsynct6.selectedIndex].text; // fork
+
+  var selsyndt6= document.getElementById("synchbart6d");
+  syndvalt6 =selsyndt6.options[selsyndt6.selectedIndex].text; //merge*/
+
+  var inpt6c =document.getElementById("inpt6c").value; //gaurd condition
+
+  /************** creating tr in table 7 ************************/
+var newtrt7=document.createElement("tr");
+ //creating td in table 7
+var newtdt7a=document.createElement("td");
+var newtdt7b=document.createElement("td");
+var newtdt7c=document.createElement("td");
+var newtdt7d=document.createElement("td");
+var newtdt7e=document.createElement("td");
+var newtdt7f=document.createElement("td");
+var newtdt7g=document.createElement("td");
+
+//addding values to td in table 7
+var tdvalt7a=document.createTextNode(c1bvalt6);
+var tdvalt7b=document.createTextNode(inpt6a);
+
+// activity || fork || merge
+/*if(document.getElementById("r1").checked=true){
+var tdvalt7c=document.createTextNode(a1bvalt6); 
+
+document.getElementById("r2").checked=false;
+document.getElementById("r3").checked=false;
+}
+else if(document.getElementById("r2").checked=true){
+  tdvalt7c=document.createTextNode(synavalt6);
+  document.getElementById("r1").checked=false;
+ 
+  document.getElementById("r3").checked=false;
+}
+else if(document.getElementById("r3").checked=true){
+  tdvalt7c=document.createTextNode(synbvalt6);
+  document.getElementById("r2").checked=false;
+  document.getElementById("r1").checked=false;
+  
+}*/
+var tdvalt7d=document.createTextNode(inpt6b);
+
+ // activity || fork || merge
+/*if(document.getElementById("r4").checked=true){
+  var tdvalt7e=document.createTextNode(a2bvalt6); 
+  
+  document.getElementById("r5").checked=false;
+  document.getElementById("r6").checked=false;
+  }
+  else if(document.getElementById("r5").checked=true){
+     tdvalt7e=document.createTextNode(syncvalt6); 
+    document.getElementById("r4").checked=false;
+   document.getElementById("r6").checked=false;
+  }
+  else if(document.getElementById("r6").checked=true){
+    tdvalt7c=document.createTextNode(syndvalt6);
+    document.getElementById("r4").checked=false;
+    document.getElementById("r5").checked=false;
+    
+  }*/
+
+var tdvalt7f=document.createTextNode(inpt6c);
+
+var newIconbtnt7 = document.createElement("btn");
+    newIconbtnt7.setAttribute("type", "button");
+    newIconbtnt7.setAttribute("onclick", "removerow(this)");
+    newIconbtnt7.setAttribute("class", "btn btn-danger");
+    newIconbtnt7.setAttribute("style","cursor:pointer;");
+
+    var newIconbtni = document.createElement("i");
+    newIconbtni.setAttribute("class", "bi bi-dash-circle");
+    newIconbtnt7.appendChild(newIconbtni);   
+
+newtdt7a.appendChild(tdvalt7a);
+newtdt7b.appendChild(tdvalt7b);
+newtdt7c.appendChild(tdvalt7c);
+newtdt7d.appendChild(tdvalt7d);
+newtdt7e.appendChild(tdvalt7e);
+newtdt7f.appendChild(tdvalt7f);
+newtdt7g.appendChild(newIconbtnt7);
+
+newtrt7.appendChild(newtdt7a);
+newtrt7.appendChild(newtdt7b);
+newtrt7.appendChild(newtdt7c);
+newtrt7.appendChild(newtdt7d);
+newtrt7.appendChild(newtdt7e);
+newtrt7.appendChild(newtdt7f);
+newtrt7.appendChild(newtdt7g);
+
+document.getElementById('tbodytbt7').appendChild(newtrt7);
 
 }
 

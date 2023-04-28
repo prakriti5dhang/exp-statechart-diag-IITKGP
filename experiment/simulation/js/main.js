@@ -319,10 +319,16 @@ var selpos= document.getElementById("selectpost");
 var poseval =selpos.options[selpos.selectedIndex].text;
 
   
-var newIconbtn = document.createElement("img");
-newIconbtn.setAttribute("src","./images/remove.png");
+var newIconbtn = document.createElement("btn");
+newIconbtn.setAttribute("type", "button");
+newIconbtn.setAttribute("class", "btn btn-danger");
+//newIconbtn.setAttribute("src","./images/remove.png");
 newIconbtn.setAttribute("onclick", "removerowuc(this)");
 newIconbtn.setAttribute("style","cursor:pointer;");
+
+var newIconbtni3 = document.createElement("i");
+newIconbtni3.setAttribute("class", "bi bi-dash-circle");
+newIconbtn.appendChild(newIconbtni3);
 
 newuLin = document.createElement("ul");
 newLin = document.createElement("li");
@@ -421,11 +427,15 @@ else{
 
 
 
-var newIconbtn = document.createElement("img");
-newIconbtn.setAttribute("src","./images/remove.png");
+var newIconbtn = document.createElement("btn");
+newIconbtn.setAttribute("type", "button");
+newIconbtn.setAttribute("class", "btn btn-danger");
 newIconbtn.setAttribute("onclick", "removerow(this)");
 newIconbtn.setAttribute("style","cursor:pointer;");
        
+var newIconbtni = document.createElement("i");
+newIconbtni.setAttribute("class", "bi bi-dash-circle");
+newIconbtn.appendChild(newIconbtni);
         
   td1.appendChild(tdval1);
   td2.appendChild(tdval2);

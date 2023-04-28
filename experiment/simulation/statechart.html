@@ -486,9 +486,9 @@ Author: Prakriti Dhang
     </thead>
     <tbody id="tbodyt4">
       <tr>
-        <td class="fw-bold">Create
+        <td class="fw-bold align-middle">Create
           parallel activities</td>
-        <td><select id="selcurrentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td class="align-middle"><select id="selcurrentact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Current Activitity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
@@ -538,7 +538,7 @@ Author: Prakriti Dhang
         <td class="align-middle"><button id="t41addbtn" class="btn btn-primary" type="button" onclick="addbtnt41()" ><i class="bi bi-plus-lg"></i>Add</button></td>
       </tr>
       <tr>
-        <td class="fw-bold">Merge
+        <td class="fw-bold align-middle" >Merge
           parallel activities</td>
         <td>
           <select id="parallelact1b" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
@@ -568,7 +568,7 @@ Author: Prakriti Dhang
           </select>
         </td>
         
-        <td><select id="selnextact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+        <td class="align-middle"><select id="selnextact" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
           <option value="0" selected>Next Activity</option>
           <option value="1">INITIAL_NODE</option>
           <option value="2">FINAL _NODE</option>
@@ -619,8 +619,8 @@ Author: Prakriti Dhang
 </thead>
 <tbody id="tbodytbt6">
  <tr>
-  <td><select id="currentactt6" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
-    <option value="0" selected>Curent Activitity</option>
+  <td class="align-middle"><select id="currentactt6" class="form-select float-center border border-1 border-primary" aria-label="Default select example" >
+    <option value="0" selected>Current Activitity</option>
     <option value="1">INITIAL_NODE</option>
     <option value="2">FINAL _NODE</option>
   
@@ -643,7 +643,7 @@ Author: Prakriti Dhang
         </label>
       </div> 
       
-      <select id="nextactt6" class="form-select"  disabled>
+      <select id="nextactt6" class="form-select"  disabled onchange="nextactchng();">
       <option value="0" selected>Next Activitity</option>
       <option value="1">INITIAL_NODE</option>
       <option value="2">FINAL _NODE</option>
@@ -658,7 +658,7 @@ Author: Prakriti Dhang
     </label>
   </div> 
  
-  <select id="syncht6a" class="form-select" disabled >
+  <select id="syncht6a" class="form-select" disabled onchange="synachng();">
   <option value="0" selected>Synchronization Bar</option>
   
  </select>
@@ -673,7 +673,7 @@ Author: Prakriti Dhang
     </label>
   </div> 
   
-  <select id="syncht6b" class="form-select" disabled >
+  <select id="syncht6b" class="form-select" disabled onchange="synbchng();">
   <option value="0" selected>Synchronization Bar</option>
   
  </select>
@@ -703,7 +703,7 @@ Author: Prakriti Dhang
       
     </div> 
 
-    <select id="nextactt6b" class="form-select" disabled >
+    <select id="nextactt6b" class="form-select" disabled onchange="nxtbchng();">
     <option value="0" selected>Next Activitity</option>
     <option value="1">INITIAL_NODE</option>
     <option value="2">FINAL _NODE</option>
@@ -718,7 +718,7 @@ Author: Prakriti Dhang
   </label>
 </div> 
 
-<select id="synchbart6c" class="form-select"  disabled>
+<select id="synchbart6c" class="form-select"  disabled onchange="syncchng();">
 <option value="0" selected>Synchronization Bar</option>
 
 </select>
@@ -733,7 +733,7 @@ Author: Prakriti Dhang
   </label>
 </div> 
 
-<select id="synchbart6d" class="form-select"  disabled>
+<select id="synchbart6d" class="form-select"  disabled onchange="syndchng();">
 <option value="0" selected>Synchronization Bar</option>
 
 </select>
