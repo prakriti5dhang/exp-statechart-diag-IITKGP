@@ -480,25 +480,25 @@ function drawbtex1(){
   });
 
   var initialst = new joint.shapes.standard.Image();
-  initialst.resize(30, 30);
-  initialst.position(2,102);
+  initialst.resize(25, 25);
+  initialst.position(29,107);
   //actor1.position(103, 15);
   initialst.attr('root/title', 'joint.shapes.standard.BoarderedImage');
   initialst.attr('label/fontSize', 16);
   initialst.attr('body/strokeWidth', 2);
   initialst.attr('border/rx', 2);
-  initialst.attr('image/xlinkHref', 'images/initialstate.png');
+  initialst.attr('image/xlinkHref', 'images/initial_state.png');
   initialst.addTo(graph);
 
   var finalst = new joint.shapes.standard.Image();
-  finalst.resize(40, 40);
-  finalst.position(443,385);
+  finalst.resize(25, 25);
+  finalst.position(445,393);
   //actor1.position(103, 15);
   finalst.attr('root/title', 'joint.shapes.standard.BoarderedImage');
   finalst.attr('label/fontSize', 16);
   finalst.attr('body/strokeWidth', 2);
   finalst.attr('border/rx', 2);
-  finalst.attr('image/xlinkHref', 'images/finalstate.png');
+  finalst.attr('image/xlinkHref', 'images/endstate.png');
   finalst.addTo(graph);
 
 
